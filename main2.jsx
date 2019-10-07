@@ -17,6 +17,7 @@ class App2 extends React.Component{
     this.setState({
       number:this.state.number+1
     })
+
   }
   render(){ //局部render
     return(
@@ -24,20 +25,17 @@ class App2 extends React.Component{
         app 2 {this.props.name}
         <div>
           {this.state.number}
-          {console.log(this)}
           <button onClick={this.add.bind(this)}>+</button>
         </div>
       </div>
     )
   }
 }
-function ad() {
-  this.add
-}
+
 
 render()
 
-
+// App2.prototype.render=
 
 
 

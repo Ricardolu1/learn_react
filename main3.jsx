@@ -1,7 +1,8 @@
 function App(props) {
   return (
     <div>
-      app {props.name}
+      <App2 name="ycy"/>
+      <App2 name="lal"/>
     </div>
   )
 }
@@ -17,6 +18,7 @@ class App2 extends React.Component{
     this.setState({
       number:this.state.number+1
     })
+
   }
   render(){ //局部render
     return(
@@ -24,26 +26,22 @@ class App2 extends React.Component{
         app 2 {this.props.name}
         <div>
           {this.state.number}
-          {console.log(this)}
           <button onClick={this.add.bind(this)}>+</button>
         </div>
       </div>
     )
   }
 }
-function ad() {
-  this.add
-}
+
 
 render()
 
 
 
 
-
 function render() {
   ReactDOM.render(
-    <App2 name="frank" age="18" />,   /* 等于React.creatElent(app) */
+    <App/>,
     document.querySelector("#root")
   )
 }
