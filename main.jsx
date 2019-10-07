@@ -13,8 +13,10 @@ class App2 extends React.Component{
       number:0
     }
   }
-  add{
-    
+  add(){
+    this.setState({
+      number:this.state.number+1
+    })
   }
   render(){ //局部render
     return(
@@ -22,11 +24,15 @@ class App2 extends React.Component{
         app 2 {this.props.name}
         <div>
           {this.state.number}
-          <button onClick={this.add}>+</button>
+          {console.log(this)}
+          <button onClick={this.add.bind()}>+</button>
         </div>
       </div>
     )
   }
+}
+function ad() {
+  this.add
 }
 
 render()
