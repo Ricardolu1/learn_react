@@ -31,9 +31,6 @@ class App2 extends React.Component{
     )
   }
 }
-function ad() {
-  this.add
-}
 
 render()
 
