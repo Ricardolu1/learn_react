@@ -7,7 +7,7 @@ function App(props) {
 }
 
 class App2 extends React.Component{
-  constructor(props){
+  constructor(props){ //只要你用了constructor你就必须写super
     super(props)
     this.state={
       number:0
