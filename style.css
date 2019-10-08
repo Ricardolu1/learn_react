@@ -4,6 +4,9 @@
   padding:0;
   box-sizing: border-box;
 }
+body{
+  padding:20px 30px;
+}
 .red{
   border: 1px solid red;
 }
@@ -16,4 +19,9 @@
 }
 .border1{
   margin-bottom: 30px;
+}
+.playgound{
+  border: 1px solid black;
+  background: green;
+  
 }
