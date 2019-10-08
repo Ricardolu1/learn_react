@@ -36,7 +36,8 @@ class App extends React.Component{
         </div>
         <div>
           <Playground success1={this.success1.bind(this)}
-          success2 = {this.success2.bind(this)}/>
+          success2 = {this.success2.bind(this)}
+         />
         </div>
       </div>
     )
@@ -142,11 +143,13 @@ class Track2 extends React.Component{
   }
 }
 
-function Playground() {
+function Playground(props) {
+  let success1 = props.success1 
+  let success2 = props.success2
   return(
-    <div>
-      <Track1 />
-      <Track2 />
+    <div className="playgound">
+      <Track1 success={success1}/>
+      <Track2 success={success2}/>
     </div>
   )
 }
