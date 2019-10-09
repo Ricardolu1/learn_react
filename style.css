@@ -4,7 +4,7 @@
   padding:0;
   box-sizing: border-box;
 }
-body{
+/* body{
   padding:20px 30px;
 }
 .red{
@@ -24,4 +24,21 @@ body{
   border: 1px solid black;
   background: green;
   
+} */
+
+.App{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border: 3px solid black
+}
+.papa{
+  border: 1px solid blue;
+  padding:10px;
+  margin:10px;
+}
+.son{
+  border: 1px solid red;
+  padding:10px;
+  margin:10px 0px;
 }

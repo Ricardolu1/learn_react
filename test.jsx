@@ -99,7 +99,7 @@ class Track1 extends React.Component{
   }   
   render(){
     return(
-      <div className="border1">
+    <div className="border1">
       <div style={this.state.styleT} className="player">兔子</div>
       <div className="track"></div>
     </div>
