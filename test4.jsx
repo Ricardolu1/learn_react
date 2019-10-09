@@ -2,7 +2,7 @@ var money={
   amount:100000
 }
 
-var fnLists={//这个对象被共用了，所以他身上的方法可以被其他两个方法调用,这里有个闭包
+var fnLists={//这个对象被共用了，所以他身上的方法可以被其他两个方法调用,这里有个闭包.
 }
 var eventHub={
    trigger(eventName,data){
