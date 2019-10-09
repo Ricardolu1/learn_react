@@ -1,15 +1,25 @@
+let creatStore = Redux.creatStore
+let reducers =  (state , action) => {
+  state = state || {
+    money:{amount:100000}
+  } 
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1
+    case 'DECREMENT':
+      return state - 1
+    default:
+      return state
+  }
+}
+
+const store = creatStore(reducers) 
+
+
+
+
+
 //数据
-var money={
-  amount:100000
-}
-var user={
-  id:12344,
-  nickname:'ycy'
-}
-var store = {
-  money:money,
-  user:user
-}
 
 
 //eventHub
