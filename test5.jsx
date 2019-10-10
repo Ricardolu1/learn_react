@@ -1,56 +1,23 @@
-let creatStore = Redux.creatStore
+let createStore = Redux.createStore
 let reducers =  (state , action) => {
   state = state || {
     money:{amount:100000}
   } 
   switch (action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
+    case '我想花钱':
+      return {
+        money:{
+          amount:state.money.amount-action.payload
+        }
+      }
     default:
       return state
   }
 }
 
-const store = creatStore(reducers) 
 
-
-
-
-
-//数据
-
-
-//eventHub
-var fnLists={//这个对象被共用了，所以他身上的方法可以被其他两个方法调用,这里有个闭包.
-}
-var eventHub={
-   trigger(eventName,data){
-    let fnList = fnLists[eventName]  //一个数组
-    if  (!fnList) {return}
-    for (let i = 0; i < fnList.length; i++) {
-      fnList[i](data)
-    }
-  },
-   on(eventName,fn){//最好传箭头函数，或者bind(this)，调用的是函数里的this就不会错了
-    if (!fnLists[eventName]) {
-      fnLists[eventName]= []
-    }
-    fnLists[eventName].push(fn)
-  } 
-}
-var  x = {
-  init(){
-    eventHub.on('我想花钱',function(data) {
-      store.money.amount-=data
-      console.log(money.amount)
-      render()
-    }) 
-  }
-}
-
-
+const store = createStore(reducers) 
+console.log(store.getState())  
 
 
 
@@ -58,15 +25,12 @@ var  x = {
 class App extends React.Component{
   constructor(){
     super()
-    this.state={
-      store:store
-    }
   }
   render(){
     return (
-      <div className="App"> {this.state.store.money.amount}
-        <BigPapa money={this.state.store.money} />
-        <YoungPapa money={this.state.store.money} />
+      <div className="App"> {this.props.store.money.amount}
+        <BigPapa money={this.props.store.money} />
+        <YoungPapa money={this.props.store.money} />
       </div>
     )
   }
@@ -114,7 +78,8 @@ class Son2 extends React.Component{
     super()
   }
   x(){
-    eventHub.trigger('我想花钱',100)
+    // eventHub.trigger('我想花钱',100)
+    store.dispatch({type:'我想花钱',payload:100})
   }
   render(){
     return (
@@ -148,14 +113,13 @@ class Son4 extends React.Component{
 
 function render() {
   ReactDOM.render(
-    <App money={money.amount}/>,
+    <App store={store.getState()}/>,
     document.querySelector('#root')
   )
 }
 
 render()
-x.init()
-
+store.subscribe(render)
 
 
 
